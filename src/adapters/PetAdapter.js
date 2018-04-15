@@ -1,18 +1,19 @@
-const baseUrl = 'https://wag-api.herokuapp.com/api/v1/'
+const dbUrl = 'https://wag-api.herokuapp.com/api/v1/'
+const apiUrl = `http://api.petfinder.com/pet.find?key=${process.env.REACT_APP_API_KEY}&animal=dog&location=NY&count=200&output=basic&format=json`
 
 export default class PetAdapter  {
   static all(){
-    return fetch(`${this.url()}`)
+    return fetch(apiUrl)
       .then( res => res.json() )
   }
 
   static allUserPets(){
-    return fetch(`${baseUrl}/users/1/user_pets`)
+    return fetch(`${dbUrl}/users/1/user_pets`)
     .then( res => res.json())
   }
 
   static allShelters(){
-    return fetch(`${baseUrl}/shelters`)
+    return fetch(`${dbUrl}/shelters`)
     .then( res => res.json())
   }
 
@@ -38,7 +39,7 @@ export default class PetAdapter  {
 
   static getFilteredPets(pets){
     let query = JSON.stringify(pets)
-    return fetch(`${this.url()}`, {
+    return fetch(`${apiUrl}`, {
       method: 'POST',
       headers: this.headers(),
       body: query
@@ -48,7 +49,7 @@ export default class PetAdapter  {
 
 
   static createUserPet(pet_id){
-    return fetch(`${baseUrl}/users/1/user_pets`, {
+    return fetch(`${dbUrl}/users/1/user_pets`, {
       method: 'POST',
       headers: this.headers(),
       body: JSON.stringify({
@@ -61,7 +62,7 @@ export default class PetAdapter  {
   }
 
   static destroyUserPet(id){
-    return fetch(`${baseUrl}/users/1/user_pets/${id}`, {
+    return fetch(`${dbUrl}/users/1/user_pets/${id}`, {
       method: 'DELETE'
     }).then(res => res.json() )
   }
@@ -74,7 +75,7 @@ export default class PetAdapter  {
   }
 
   static url(){
-    return `${baseUrl}/pets`
+    return `${dbUrl}/pets`
   }
 
 }

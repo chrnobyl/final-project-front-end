@@ -165,10 +165,6 @@ export default class Container extends Component {
     })
   }
 
-  // clearAllUserPets(){
-  //
-  // }
-
   render(){
     return (
       <div>

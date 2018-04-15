@@ -55,6 +55,7 @@ export default class FilterForm extends Component {
     handleSubmit(event) {
       event.preventDefault()
       let stateObj = this.state
+      console.log(stateObj)
       for (var key in stateObj) {
         if (stateObj[key] === ""){
           delete stateObj[key]
