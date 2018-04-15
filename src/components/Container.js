@@ -35,7 +35,7 @@ export default class Container extends Component {
     .then(data => {
       this.setState(prevState => ({
         petNum: data.petfinder.pets.pet[0].id.$t,
-        pets: data
+        pets: data.petfinder.pets.pet
       }))
     })
     PetAdapter.allUserPets()

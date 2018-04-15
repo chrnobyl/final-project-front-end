@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import { Card, Icon, Image, Button, Segment, Dimmer, Loader } from 'semantic-ui-react'
+// import { Link } from 'react-router-dom'
+import { Card, Icon, Image, Button } from 'semantic-ui-react'
 // import PetDetail from './PetDetail'
 
 const DisplayPet = (props) => {
@@ -17,21 +17,21 @@ const DisplayPet = (props) => {
     } else if (props.detail === true){
       return (
         <Card fluid centered raised color="red">
-          <Image src={props.pet.picture} fluid />
+          <Image src={props.pet.media.photos.photo[2].$t} fluid />
           <Card.Content>
             <Card.Header size="massive" color="green">
-              <h1>{props.pet.name}</h1>
+              <h1>{props.pet.name.$t}</h1>
             </Card.Header>
             <Card.Meta>
               <span className="age"><h2>
-                Age: {props.pet.age}
+                Age: {props.pet.age.$t}
               </h2></span>
             </Card.Meta>
           </Card.Content>
           <Card.Content extra>
-            <a href={`mailto:${props.pet.email}`}>
+            <a href={`mailto:${props.pet.contact.email.$t}`}>
               <h2><Icon name="home" size="big"/>
-              {props.pet.shelter}</h2>
+              {props.pet.shelterId.$t}</h2>
             </a>
             <div>
               <Button.Group>
@@ -47,28 +47,28 @@ const DisplayPet = (props) => {
           </div>
           </Card.Content>
           <Card.Content extra>
-            <h2><p>{props.pet.description}</p></h2>
+            <h2><p>{props.pet.description.$t}</p></h2>
           </Card.Content>
         </Card>
       )
     } else {
       return (
         <Card fluid centered raised>
-          <Image src={props.pet.picture} fluid />
+          <Image src={props.pet.media.photos.photo[2].$t} fluid />
           <Card.Content>
             <Card.Header size="massive">
-              <h1>{props.pet.name}</h1>
+              <h1>{props.pet.name.$t}</h1>
             </Card.Header>
             <Card.Meta>
               <span className="age"><h2>
-                Age: {props.pet.age}
+                Age: {props.pet.age.$t}
               </h2></span>
             </Card.Meta>
           </Card.Content>
           <Card.Content extra>
             <a>
               <h2><Icon name="home" size="big"/>
-              {props.pet.shelter}</h2>
+              {props.pet.shelterId.$t}</h2>
             </a>
             <div>
               <Button.Group>
