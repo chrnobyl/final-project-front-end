@@ -142,7 +142,7 @@ export default class Container extends Component {
   handleKeyDown(event){
     event.preventDefault()
     console.log(this.state.petNum)
-    if(event.keyCode === 39){
+    if (event.keyCode === 39){
       return this.yesPet()
     } else if (event.keyCode === 37){
       return this.noPet()
@@ -178,10 +178,10 @@ export default class Container extends Component {
         <div className="message"><h1>{message}</h1></div>
         <div className="instructions"><h1>Use the arrow keys! Press right to adopt, left to skip, or down to see bio.</h1></div>
         <div id="cat"><Popup
-    trigger={<img src="http://www.hillspet.com/HillsPetUS/v1/portal/en/us/science-diet/youthful-vitality/locale-assets/img/pet-foods/bottom-banner-cat.png" />}
-    content='meow.'
-    on='hover'
-  /></div>
+          trigger={<img src="http://www.hillspet.com/HillsPetUS/v1/portal/en/us/science-diet/youthful-vitality/locale-assets/img/pet-foods/bottom-banner-cat.png" />}
+          content='meow.'
+          on='hover'
+        /></div>
 
 
       </div>
