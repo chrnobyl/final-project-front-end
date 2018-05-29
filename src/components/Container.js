@@ -51,7 +51,7 @@ export default class Container extends Component {
         shelters: data
       })
     })
-    document.addEventListener("keydown", this.handleKeyDown.bind(this));
+    // document.addEventListener("keydown", this.handleKeyDown.bind(this));
   }
 
   yesPet(){

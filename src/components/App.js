@@ -6,8 +6,8 @@ import Container from './Container'
 export default class App extends Component {
 
   login() {
-    const email = ("#email").val()
-    const password = ("#password").val()
+    const email = document.getElementById("email")
+    const password = document.getElementById("password")
     const request = {"auth": {"email": email, "password": password}}
     console.log(request)
     fetch({
@@ -35,6 +35,7 @@ export default class App extends Component {
             name="email"
             id="email"
             type="email"
+            ref={ref => this.myTextInput = ref}
           />
           <br /><br />
           <label htmlFor="password">Password:</label>
@@ -43,6 +44,7 @@ export default class App extends Component {
             name="password"
             id="password"
             type="password"
+            ref={ref => this.myTextInput = ref}
           />
           </form>
           <br />
