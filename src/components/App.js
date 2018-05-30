@@ -35,7 +35,7 @@ class App extends Component {
           }
         })
     } else {
-      // this.redirectToLogin()
+      this.redirectToLogin()
       console.log("Invalid credentials")
     }
   }
@@ -84,7 +84,7 @@ class App extends Component {
   }
 
   redirectToLogin(){
-    this.props.history.push('/')
+    this.props.history.push('/login')
   }
 
   // login() {
@@ -143,11 +143,11 @@ class App extends Component {
     const { isLoggedIn, user } = this.state.auth
     return (
       <div>
-        {!isLoggedIn ? <Route path="/" action={this.redirectToLogin} /> : null}
+        {!isLoggedIn ? <Route path="/login" action={this.redirectToLogin} /> : null}
         <NavBar isLoggedIn={isLoggedIn} user={user} logout={this.logout} />
         {isLoggedIn ? <Container user={user} /> : <Login onSubmit={this.login} /> }
       </div>
-    );
+    )
   }
 }
 

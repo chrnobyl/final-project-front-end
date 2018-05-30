@@ -31,6 +31,7 @@ export default class Container extends Component {
   }
 
   componentDidMount(){
+    debugger
     PetAdapter.all()
     .then(data => {
       this.setState(prevState => ({
@@ -38,13 +39,16 @@ export default class Container extends Component {
         pets: data.petfinder.pets.pet
       }))
     })
-    PetAdapter.allUserPets()
-    .then(data => {
-      this.setState({
-        userPets: data.filter((d, i) => data.indexOf(d) === i),
-        userPetIds: data.map(d => d.id)
-      })
-    })
+    // PetAdapter.allUserPets(this.props.user)
+    // .then(data => {
+    //   if (data != null){
+    //     debugger
+    //     this.setState({
+    //       userPets: data.filter((d, i) => data.indexOf(d) === i),
+    //       userPetIds: data.map(d => d.id)
+    //     })
+    //   }
+    // })
     PetAdapter.allShelters()
     .then(data => {
       this.setState({

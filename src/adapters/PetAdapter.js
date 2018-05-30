@@ -13,8 +13,8 @@ export default class PetAdapter {
       .then( res => res.json() )
   }
 
-  static allUserPets(){
-    return fetch(`${dbUrl}/current_user/user_pets`)
+  static allUserPets(user){
+    return fetch(`${dbUrl}/users/${user.id}/user_pets`)
     .then( res => res.json())
   }
 
