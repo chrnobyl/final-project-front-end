@@ -5,22 +5,22 @@ const apiKey = process.env.REACT_APP_API_KEY
 const apiSecret = process.env.REACT_APP_API_SECRET
 
 export default class PetAdapter {
-  static all(){
+  static all() {
     console.log(apiUrl)
     console.log(apiKey)
     console.log(apiSecret)
     return fetch(apiUrl)
-      .then( res => res.json() )
+      .then(res => res.json())
   }
 
-  static allUserPets(user){
+  static allUserPets(user) {
     return fetch(`${dbUrl}/users/${user.id}/user_pets`)
-    .then( res => res.json())
+    .then(res => res.json())
   }
 
-  static allShelters(){
+  static allShelters() {
     return fetch(`${dbUrl}/shelters`)
-    .then( res => res.json())
+    .then(res => res.json())
   }
 
   // static createPet(){
@@ -43,17 +43,17 @@ export default class PetAdapter {
   //   // .then(window.location.href = "http://localhost:3001/pets")
   // }
 
-  static getFilteredPets(pets){
+  static getFilteredPets(pets) {
     let query = JSON.stringify(pets)
     return fetch(`${apiUrl}`, {
       method: 'POST',
       headers: this.headers(),
       body: query
     // .then(window.location.href = "http://localhost:3001/foods")
-    }).then(res => res.json() )
+    }).then(res => res.json())
   }
 
-  static createUserPet(pet_id){
+  static createUserPet(pet_id) {
     return fetch(`${dbUrl}/users/1/user_pets`, {
       method: 'POST',
       headers: this.headers(),
@@ -63,24 +63,23 @@ export default class PetAdapter {
           pet_id: pet_id
         }
       })
-    }).then(res => res.json() )
+    }).then(res => res.json())
   }
 
-  static destroyUserPet(id){
+  static destroyUserPet(id) {
     return fetch(`${dbUrl}/users/1/user_pets/${id}`, {
       method: 'DELETE'
-    }).then(res => res.json() )
+    }).then(res => res.json())
   }
 
-  static headers(){
+  static headers() {
     return {
       'content-type': 'application/json',
       'accept': 'application/json'
     }
   }
 
-  static url(){
+  static url() {
     return `${dbUrl}/pets`
   }
-
 }

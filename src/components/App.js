@@ -56,7 +56,7 @@ class App extends Component {
     if(params.password_confirmation === ''){
       const loginParams = {
         "auth": {
-          "email": params.email,
+          "username": params.username,
           "password": params.password
         }
       }

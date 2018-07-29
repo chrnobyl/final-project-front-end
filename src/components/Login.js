@@ -5,11 +5,11 @@ import '../App.css';
 // import NavBar from './NavBar'
 // import Container from './Container'
 
-export default class App extends Component {
+export default class Login extends Component {
   constructor(){
     super()
     this.state = {
-      email: '',
+      username: '',
       password: '',
       password_confirmation: ''
     }
@@ -27,7 +27,7 @@ export default class App extends Component {
     e.preventDefault()
     this.props.onSubmit(this.state)
     this.setState({
-      email: '',
+      username: '',
       password: ''
     })
   }
@@ -37,7 +37,7 @@ export default class App extends Component {
       <Form onSubmit={this.handleSubmit}>
         <Form.Field>
           <label>Username</label>
-          <input type="text" name="email" value={this.state.email} onChange={this.handleChange} /><br/>
+          <input type="text" name="username" value={this.state.username} onChange={this.handleChange} /><br/>
         </Form.Field>
         <Form.Field>
           <label>Password</label>
