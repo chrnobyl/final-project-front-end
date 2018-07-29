@@ -21,9 +21,10 @@ class App extends Component {
   }
 
   componentDidMount(){
-    if(localStorage.getItem('jwt')){
+    if (localStorage.getItem('jwt')){
       AuthAdapter.currentUser()
         .then(user => {
+          debugger
           if(!user.error){
             user.jwt = localStorage.getItem('jwt')
             this.setState({
@@ -55,10 +56,8 @@ class App extends Component {
   login(params){
     if(params.password_confirmation === ''){
       const loginParams = {
-        "auth": {
-          "username": params.username,
-          "password": params.password
-        }
+        "username": params.username,
+        "password": params.password
       }
       AuthAdapter.login(loginParams)
         .then(user => {

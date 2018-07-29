@@ -31,7 +31,6 @@ export default class Container extends Component {
   }
 
   componentDidMount(){
-    debugger
     PetAdapter.all()
     .then(data => {
       this.setState(prevState => ({
