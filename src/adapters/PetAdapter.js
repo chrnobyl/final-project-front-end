@@ -1,8 +1,8 @@
 // const dbUrl = 'https://wag-api.herokuapp.com/api/v1/'
 const dbUrl = 'http://localhost:3000/api/v1'
-const apiUrl = `http://api.petfinder.com/pet.find?key=${apiKey}&animal=dog&location=NY&count=200&output=basic&format=json`
 const apiKey = process.env.REACT_APP_API_KEY
 const apiSecret = process.env.REACT_APP_API_SECRET
+const apiUrl = `http://api.petfinder.com/pet.find?key=${apiKey}&animal=dog&location=NY&count=200&output=basic&format=json`
 
 export default class PetAdapter {
   static all() {
@@ -10,7 +10,7 @@ export default class PetAdapter {
     console.log(apiKey)
     console.log(apiSecret)
     return fetch(apiUrl)
-    .then(res => res.json())
+      .then(res => res.json())
   }
 
   static allUserPets(user) {
