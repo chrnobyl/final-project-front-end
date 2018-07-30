@@ -10,7 +10,7 @@ export default class PetAdapter {
     console.log(apiKey)
     console.log(apiSecret)
     return fetch(apiUrl)
-      .then(res => res.json())
+    .then(res => res.json())
   }
 
   static allUserPets(user) {

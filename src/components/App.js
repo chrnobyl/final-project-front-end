@@ -24,7 +24,6 @@ class App extends Component {
     if (localStorage.getItem('jwt')){
       AuthAdapter.currentUser()
         .then(user => {
-          debugger
           if(!user.error){
             user.jwt = localStorage.getItem('jwt')
             this.setState({
